@@ -14,8 +14,8 @@ import javax.swing.*;
 public class Panel extends JPanel {
     Pomocnik pomocnicza = new Pomocnik();
 
-    final int rozzdj = 200,
-            odst = 2;
+    final int rozzdj = 200;
+    final int odst = 2;
 
     public int[][] tab = new int[5][5];
     public BufferedImage[][] tabObraz = new BufferedImage[5][5];
