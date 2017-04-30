@@ -1,7 +1,5 @@
 package gra;
 
-import gra.zdj.AdapterGry;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
