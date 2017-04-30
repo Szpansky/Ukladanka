@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class Pomocnik {
 
+    
 
     public int[][] wypelnij_tablice() {               //funkcja wypełniająca tablice liczbami od 0 do 24
         int licznik = 0;
