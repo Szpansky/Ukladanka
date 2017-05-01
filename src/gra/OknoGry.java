@@ -25,7 +25,7 @@ public class OknoGry extends JFrame implements KeyListener {
         add(obraz);
         addKeyListener(this);
 
-        setSize(d.width, d.height-30);
+        setSize(d.width, d.height-50);
         adapter = new AdapterGry();
     }
 

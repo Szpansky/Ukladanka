@@ -29,17 +29,17 @@ public class PanelGry extends JPanel {
 
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         Font czcionka = new Font("Sans Serif", Font.BOLD, 20);
 
         for (int b = 0; b <= 4; b++)
             for (int a = 0; a <= 4; a++) {
 
-                g2d.drawImage(tab_obrazkow[b][a], a * (rozmiar_kawalka + 2), b * (rozmiar_kawalka + 2), this); //rysowanie obrazków
-                g.setFont(czcionka);
-                g.setColor(Color.green);
-                g.drawString(String.valueOf(tab_numerow[a][b]), ((a + 1) * (rozmiar_kawalka)) - 20, (b + 1) * (rozmiar_kawalka));
-               // g2d.drawImage(obraz, 0 , 0, this);
+                //g2d.drawImage(tab_obrazkow[b][a], a * (rozmiar_kawalka + 2), b * (rozmiar_kawalka + 2), this); //rysowanie obrazków
+                //g.setFont(czcionka);
+                //g.setColor(Color.green);
+               // g.drawString(String.valueOf(tab_numerow[a][b]), ((a + 1) * (rozmiar_kawalka)) - 20, (b + 1) * (rozmiar_kawalka));
+                g2d.drawImage(obraz, (int)(( d.getWidth() - obraz.getWidth() )/2) , 0, this);
             }
     }
 }

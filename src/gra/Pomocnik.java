@@ -3,7 +3,10 @@ package gra;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
 import java.io.File;
 import java.io.IOException;
 
@@ -60,26 +63,36 @@ public class Pomocnik {
 
     public BufferedImage wczytaj_zdjecie() {        // TODO przekazanie String jako sciezka
 
-        BufferedImage Obraz = new BufferedImage(8000, 6000, BufferedImage.TYPE_INT_RGB);
+        BufferedImage Obraz = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         try {
             Obraz = ImageIO.read(new File("src/gra/zdj/pelne.jpg"));     // TODO dodanie mozliwosci wczytania nazwy przez usera, sciezki
         } catch (IOException e) {
             System.err.println("Blad odczytu obrazka");
             JOptionPane.showMessageDialog(null, "UWAGA!  Nie znaleziono obrazka");
         }
-        // TODO uzycie funkcji skaluj_zdjecie(Obraz)
+
+        Obraz = skaluj_zdjecie(Obraz);
         // TODO uzycie funkcji podziel_zdjecie(Obraz)
 
         return Obraz;       // TODO Funkcja bedzie zwracac tablice obrazow
     }
 
 
-    private void skaluj_zdjecie(BufferedImage Obraz){
+    private BufferedImage skaluj_zdjecie(BufferedImage Obraz){
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = d.height -30;
+        int x = d.height -50;
         int y = x;
 
-        // TODO funkcja skalujaca do rozmiaru x i y
+        int w = Obraz.getWidth();
+        int h = Obraz.getHeight();
+
+        AffineTransform scale = AffineTransform.getScaleInstance((double) x/w, (double) y/h);
+        BufferedImageOp op = new AffineTransformOp(scale, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+        BufferedImage filteredImage = new BufferedImage(x, y, Obraz.getType());
+        op.filter(Obraz, filteredImage);
+
+        Obraz = filteredImage;
+        return Obraz;
     }
 
 
