@@ -7,23 +7,25 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-public class Frame extends JFrame implements KeyListener {
+public class OknoGry extends JFrame implements KeyListener {
 
-    public static Panel obrazPanel = new Panel();
+    public static Panel obraz = new Panel();
     AdapterGry adapter;
 
     private int x, y;
 
 
-    public Frame() {
+    public OknoGry() {
         super("Super Gra");
         JOptionPane.showMessageDialog(null, "UWAGA!  Sterowanie Strzałkami");
         JOptionPane.showMessageDialog(null, "Klawisz F2= Nowa Gra");
 
-        add(obrazPanel);
-        addKeyListener(this);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        setSize((obrazPanel.rozzdj * 5) + (obrazPanel.odst * 5) + 10, (obrazPanel.rozzdj * 5) + (obrazPanel.odst * 5) + 30);
+
+        add(obraz);
+        addKeyListener(this);
+
+        setSize(d.width, d.height-30);
         adapter = new AdapterGry();
     }
 

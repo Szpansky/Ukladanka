@@ -10,13 +10,13 @@ public class AdapterGry {
 
     int x;
     int y;
-    public Panel obrazPanel;
+    public Panel obraz;
 
     public AdapterGry() {
 
         y = 4;
         x = 4;
-        obrazPanel = Frame.obrazPanel;
+        obraz = OknoGry.obraz;
     }
 
     public void czytanieKlawisza(KeyEvent evt) {
@@ -47,12 +47,12 @@ public class AdapterGry {
     public void funzamzdj(int a, int b, int a2, int b2) {
         int zamtab;
         BufferedImage[] zamzdj = new BufferedImage[1];
-        zamzdj[0] = Frame.obrazPanel.tabObraz[a2][b2];
-        obrazPanel.tabObraz[a2][b2] = obrazPanel.tabObraz[a][b];
-        obrazPanel.tabObraz[a][b] = zamzdj[0];
-        zamtab = obrazPanel.tab[b][a];
-        obrazPanel.tab[b][a] = obrazPanel.tab[b2][a2];
-        obrazPanel.tab[b2][a2] = zamtab;
+        zamzdj[0] = OknoGry.obraz.tab_obrazkow[a2][b2];
+        obraz.tab_obrazkow[a2][b2] = obraz.tab_obrazkow[a][b];
+        obraz.tab_obrazkow[a][b] = zamzdj[0];
+        zamtab = obraz.tab_numerow[b][a];
+        obraz.tab_numerow[b][a] = obraz.tab_numerow[b2][a2];
+        obraz.tab_numerow[b2][a2] = zamtab;
 
     }
 
@@ -78,7 +78,7 @@ public class AdapterGry {
         int licz = 0;
         for (int b = 0; b <= 4; b++)
             for (int a = 0; a <= 4; a++) {
-                if (obrazPanel.tab[a][b] == licz) licz++;
+                if (obraz.tab_numerow[a][b] == licz) licz++;
                 else return 1;
             }
         return 0;
