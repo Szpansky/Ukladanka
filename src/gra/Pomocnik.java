@@ -22,7 +22,7 @@ public class Pomocnik {
     }
 
 
-    public BufferedImage[][] wczytaj_zdjecia() {
+    public BufferedImage[][] wczytaj_zdjecia() {        // TODO to bedzie usuniete
 
         BufferedImage[][] tab_obrazow = new BufferedImage[5][5];
         try {
@@ -67,12 +67,14 @@ public class Pomocnik {
             System.err.println("Blad odczytu obrazka");
             JOptionPane.showMessageDialog(null, "UWAGA!  Nie znaleziono obrazka");
         }
-        // TODO sklowanie(Obraz)
-        return Obraz;
+        // TODO uzycie funkcji skaluj_zdjecie(Obraz)
+        // TODO uzycie funkcji podziel_zdjecie(Obraz)
+
+        return Obraz;       // TODO Funkcja bedzie zwracac tablice obrazow
     }
 
 
-    private void skalowanie(BufferedImage Obraz){
+    private void skaluj_zdjecie(BufferedImage Obraz){
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         int x = d.height -30;
         int y = x;
@@ -80,5 +82,14 @@ public class Pomocnik {
         // TODO funkcja skalujaca do rozmiaru x i y
     }
 
+
+    private BufferedImage[][] podziel_zdjecie(BufferedImage Obraz){
+
+        BufferedImage[][] tab_obrazow = new BufferedImage[5][5];
+
+        // TODO funkcja dzielaca Obraz na mnejsze kawalki dodawane do tablicy obrazow
+
+        return tab_obrazow;
+    }
 
 }
