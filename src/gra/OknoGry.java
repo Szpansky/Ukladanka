@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class OknoGry extends JFrame implements KeyListener {
 
-    public static Panel obraz = new Panel();
+    public static PanelGry obraz = new PanelGry();
     AdapterGry adapter;
 
     private int x, y;

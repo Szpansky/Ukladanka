@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 
 
-public class Panel extends JPanel {
+public class PanelGry extends JPanel {
     Pomocnik pomocnicza = new Pomocnik();
 
 
@@ -18,7 +18,7 @@ public class Panel extends JPanel {
     BufferedImage obraz;
 
 
-    public Panel() {
+    public PanelGry() {
 
         tab_numerow = pomocnicza.wypelnij_tablice();
         tab_obrazkow = pomocnicza.wczytaj_zdjecia();

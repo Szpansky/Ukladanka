@@ -10,7 +10,7 @@ public class AdapterGry {
 
     int x;
     int y;
-    public Panel obraz;
+    public PanelGry obraz;
 
     public AdapterGry() {
 
