@@ -10,8 +10,8 @@ import java.awt.image.BufferedImageOp;
 import java.io.File;
 import java.io.IOException;
 
-public class Pomocnik {
 
+public class Pomocnik {
 
     public int[][] wypelnij_tablice() {
         int licznik = 0;
@@ -23,7 +23,6 @@ public class Pomocnik {
             }
         return tab;
     }
-
 
     public BufferedImage[][] wczytaj_zdjecia() {        // TODO to bedzie usuniete
 
@@ -77,7 +76,6 @@ public class Pomocnik {
         return Obraz;       // TODO Funkcja bedzie zwracac tablice obrazow
     }
 
-
     private BufferedImage skaluj_zdjecie(BufferedImage Obraz){
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         int x = d.height -50;
@@ -95,7 +93,6 @@ public class Pomocnik {
         return Obraz;
     }
 
-
     private BufferedImage[][] podziel_zdjecie(BufferedImage Obraz){
 
         BufferedImage[][] tab_obrazow = new BufferedImage[5][5];
@@ -104,5 +101,4 @@ public class Pomocnik {
 
         return tab_obrazow;
     }
-
 }

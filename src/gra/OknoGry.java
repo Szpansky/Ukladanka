@@ -33,6 +33,13 @@ public class OknoGry extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent evt) {
         adapter.czytanieKlawisza(evt);
         this.repaint();
+
+        int esc = evt.getKeyCode();
+        if((esc == 27)){
+            this.dispose();
+        }
+
+
     }
 
     @Override

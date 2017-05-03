@@ -4,27 +4,21 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 
-
 public class PanelGry extends JPanel {
     Pomocnik pomocnicza = new Pomocnik();
 
-
     int rozmiar_kawalka;
     final int odst = 2;
-
 
     public int[][] tab_numerow = new int[5][5];
     BufferedImage[][] tab_obrazkow = new BufferedImage[5][5];
     BufferedImage obraz;
 
-
     public PanelGry() {
-
         tab_numerow = pomocnicza.wypelnij_tablice();
         tab_obrazkow = pomocnicza.wczytaj_zdjecia();
         rozmiar_kawalka = tab_obrazkow[1][1].getHeight();
         obraz = pomocnicza.wczytaj_zdjecie();       // TODO dodanie parametru sciezki
-
     }
 
     public void paintComponent(Graphics g) {
@@ -33,7 +27,6 @@ public class PanelGry extends JPanel {
         Font czcionka = new Font("Sans Serif", Font.BOLD, 20);
 
         int start_rysowania = (int) ((d.getWidth() - obraz.getWidth()) / 2);
-
 
         for (int b = 0; b <= 4; b++)
             for (int a = 0; a <= 4; a++) {

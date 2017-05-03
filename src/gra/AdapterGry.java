@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-
 public class AdapterGry {
 
     int x;
@@ -13,7 +12,6 @@ public class AdapterGry {
     public PanelGry obraz;
 
     public AdapterGry() {
-
         y = 4;
         x = 4;
         obraz = OknoGry.obraz;
@@ -43,7 +41,6 @@ public class AdapterGry {
         }
     }
 
-
     public void funzamzdj(int a, int b, int a2, int b2) {
         int zamtab;
         BufferedImage[] zamzdj = new BufferedImage[1];
@@ -53,7 +50,6 @@ public class AdapterGry {
         zamtab = obraz.tab_numerow[b][a];
         obraz.tab_numerow[b][a] = obraz.tab_numerow[b2][a2];
         obraz.tab_numerow[b2][a2] = zamtab;
-
     }
 
     public void mieszaj() {
@@ -83,6 +79,4 @@ public class AdapterGry {
             }
         return 0;
     }
-
-
 }
