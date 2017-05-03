@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class OknoMenu extends JFrame implements ActionListener {
 
     JButton nowa_gra = new JButton("Nowa Gra");
@@ -60,4 +61,11 @@ public class OknoMenu extends JFrame implements ActionListener {
         } else
             System.out.println("Blad");
     }
+
+
+
+
+
+
+
 }

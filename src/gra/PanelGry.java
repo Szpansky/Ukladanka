@@ -5,20 +5,21 @@ import java.awt.image.BufferedImage;
 import javax.swing.*;
 
 public class PanelGry extends JPanel {
-    Pomocnik pomocnicza = new Pomocnik();
 
-    int rozmiar_kawalka;
     final int odst = 2;
+    private Pomocnik pomocnicza = new Pomocnik();
+    private int rozmiar_kawalka;
+    private BufferedImage obraz;
 
     public int[][] tab_numerow = new int[5][5];
-    BufferedImage[][] tab_obrazkow = new BufferedImage[5][5];
-    BufferedImage obraz;
 
-    public PanelGry() {
+    BufferedImage[][] tab_obrazkow = new BufferedImage[5][5];
+
+    public PanelGry(String sciezka) {
         tab_numerow = pomocnicza.wypelnij_tablice();
         tab_obrazkow = pomocnicza.wczytaj_zdjecia();
         rozmiar_kawalka = tab_obrazkow[1][1].getHeight();
-        obraz = pomocnicza.wczytaj_zdjecie();       // TODO dodanie parametru sciezki
+        obraz = pomocnicza.wczytaj_zdjecie(sciezka);
     }
 
     public void paintComponent(Graphics g) {

@@ -60,11 +60,11 @@ public class Pomocnik {
         return tab_obrazow;
     }
 
-    public BufferedImage wczytaj_zdjecie() {        // TODO przekazanie String jako sciezka
+    public BufferedImage wczytaj_zdjecie(String sciezka) {
 
         BufferedImage Obraz = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         try {
-            Obraz = ImageIO.read(new File("src/gra/zdj/pelne.jpg"));     // TODO dodanie mozliwosci wczytania nazwy przez usera, sciezki
+            Obraz = ImageIO.read(new File(sciezka));
         } catch (IOException e) {
             System.err.println("Blad odczytu obrazka");
             JOptionPane.showMessageDialog(null, "UWAGA!  Nie znaleziono obrazka");
@@ -101,4 +101,9 @@ public class Pomocnik {
 
         return tab_obrazow;
     }
+
+
+
+
+
 }
