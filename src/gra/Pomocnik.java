@@ -10,9 +10,16 @@ import java.awt.image.BufferedImageOp;
 import java.io.File;
 import java.io.IOException;
 
-
+/**
+ * Klasa która przechowuje pomocnicze metody
+ * do obsługi wczytywanego zdjęcia
+ */
 public class Pomocnik {
 
+    /**
+     * Metoda wypełnia tablice liczbami
+     * @return zwraca referencje do wypełnionej tablicy
+     */
     public int[][] wypelnij_tablice() {
         int licznik = 0;
         int[][] tab = new int[5][5];
@@ -24,6 +31,13 @@ public class Pomocnik {
         return tab;
     }
 
+    /**
+     * Metoda wczytuje zdjęcie z przekazanego parametru,
+     * oraz przy pomocy kolejnych metod skaluje zdjęcie oraz
+     * dzieli na kawałki
+     * @param sciezka scieżka pliku graficznego
+     * @return Zwraca Referencje do obiektu tablicy zdjęc buforowanych
+     */
     public BufferedImage[][] wczytaj_zdjecie(String sciezka) {
 
         BufferedImage[][] tab_obrazow;
@@ -41,6 +55,12 @@ public class Pomocnik {
         return tab_obrazow;
     }
 
+    /**
+     * Metoda skaluje zdjęcie do rozmiarów zależnych od danego rozmiaru
+     * ekranu.
+     * @param Obraz Referencja do całego obrazu
+     * @return Zwraca referencję do przeskalowanego obrazu
+     */
     private BufferedImage skaluj_zdjecie(BufferedImage Obraz){
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         int x = d.height -100;
@@ -58,6 +78,11 @@ public class Pomocnik {
         return Obraz;
     }
 
+    /**
+     * Metoda dzieli zdjęcia na kawałki oraz zapisuje je do tablicy.
+     * @param Obraz Referencja do obrazu
+     * @return Zwraca referencje do obiektu tablicy zdjęć
+     */
     private BufferedImage[][] podziel_zdjecie(BufferedImage Obraz){
 
         BufferedImage[][] tab_obrazow = new BufferedImage[5][5];
