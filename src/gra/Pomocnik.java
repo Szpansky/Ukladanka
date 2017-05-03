@@ -24,44 +24,9 @@ public class Pomocnik {
         return tab;
     }
 
-    public BufferedImage[][] wczytaj_zdjecia() {        // TODO to bedzie usuniete
+    public BufferedImage[][] wczytaj_zdjecie(String sciezka) {
 
-        BufferedImage[][] tab_obrazow = new BufferedImage[5][5];
-        try {
-            tab_obrazow[0][0] = ImageIO.read(new File("src/gra/zdj/00.jpg"));
-            tab_obrazow[0][1] = ImageIO.read(new File("src/gra/zdj/01.jpg"));
-            tab_obrazow[0][2] = ImageIO.read(new File("src/gra/zdj/02.jpg"));
-            tab_obrazow[0][3] = ImageIO.read(new File("src/gra/zdj/03.jpg"));
-            tab_obrazow[0][4] = ImageIO.read(new File("src/gra/zdj/04.jpg"));
-            tab_obrazow[1][0] = ImageIO.read(new File("src/gra/zdj/10.jpg"));
-            tab_obrazow[1][1] = ImageIO.read(new File("src/gra/zdj/11.jpg"));
-            tab_obrazow[1][2] = ImageIO.read(new File("src/gra/zdj/12.jpg"));
-            tab_obrazow[1][3] = ImageIO.read(new File("src/gra/zdj/13.jpg"));
-            tab_obrazow[1][4] = ImageIO.read(new File("src/gra/zdj/14.jpg"));
-            tab_obrazow[2][0] = ImageIO.read(new File("src/gra/zdj/20.jpg"));
-            tab_obrazow[2][1] = ImageIO.read(new File("src/gra/zdj/21.jpg"));
-            tab_obrazow[2][2] = ImageIO.read(new File("src/gra/zdj/22.jpg"));
-            tab_obrazow[2][3] = ImageIO.read(new File("src/gra/zdj/23.jpg"));
-            tab_obrazow[2][4] = ImageIO.read(new File("src/gra/zdj/24.jpg"));
-            tab_obrazow[3][0] = ImageIO.read(new File("src/gra/zdj/30.jpg"));
-            tab_obrazow[3][1] = ImageIO.read(new File("src/gra/zdj/31.jpg"));
-            tab_obrazow[3][2] = ImageIO.read(new File("src/gra/zdj/32.jpg"));
-            tab_obrazow[3][3] = ImageIO.read(new File("src/gra/zdj/33.jpg"));
-            tab_obrazow[3][4] = ImageIO.read(new File("src/gra/zdj/34.jpg"));
-            tab_obrazow[4][0] = ImageIO.read(new File("src/gra/zdj/40.jpg"));
-            tab_obrazow[4][1] = ImageIO.read(new File("src/gra/zdj/41.jpg"));
-            tab_obrazow[4][2] = ImageIO.read(new File("src/gra/zdj/42.jpg"));
-            tab_obrazow[4][3] = ImageIO.read(new File("src/gra/zdj/43.jpg"));
-            tab_obrazow[4][4] = ImageIO.read(new File("src/gra/zdj/44.jpg"));
-        } catch (IOException e) {
-            System.err.println("Blad odczytu obrazka");
-            JOptionPane.showMessageDialog(null, "UWAGA!  Nie znaleziono obrazka");
-        }
-        return tab_obrazow;
-    }
-
-    public BufferedImage wczytaj_zdjecie(String sciezka) {
-
+        BufferedImage[][] tab_obrazow;
         BufferedImage Obraz = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         try {
             Obraz = ImageIO.read(new File(sciezka));
@@ -71,14 +36,14 @@ public class Pomocnik {
         }
 
         Obraz = skaluj_zdjecie(Obraz);
-        // TODO uzycie funkcji podziel_zdjecie(Obraz)
+        tab_obrazow = podziel_zdjecie(Obraz);
 
-        return Obraz;       // TODO Funkcja bedzie zwracac tablice obrazow
+        return tab_obrazow;
     }
 
     private BufferedImage skaluj_zdjecie(BufferedImage Obraz){
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = d.height -50;
+        int x = d.height -100;
         int y = x;
 
         int w = Obraz.getWidth();
@@ -96,14 +61,18 @@ public class Pomocnik {
     private BufferedImage[][] podziel_zdjecie(BufferedImage Obraz){
 
         BufferedImage[][] tab_obrazow = new BufferedImage[5][5];
+        tab_obrazow[0][0] = Obraz.getSubimage(0, 0, Obraz.getWidth()/5, Obraz.getHeight()/5);
 
-        // TODO funkcja dzielaca Obraz na mnejsze kawalki dodawane do tablicy obrazow
+        for (int b = 0; b <= 4; b++)
+            for (int a = 0; a <= 4; a++) {
+                tab_obrazow[b][a] = Obraz.getSubimage(a*(Obraz.getWidth()/5), b*(Obraz.getHeight()/5), Obraz.getWidth()/5, Obraz.getHeight()/5);
+            }
+
+        Graphics2D    graphics = tab_obrazow[4][4].createGraphics();
+        graphics.setPaint ( new Color ( 0, 254, 0 ) );
+        graphics.fillRect ( 0, 0, tab_obrazow[4][4].getWidth(), tab_obrazow[4][4].getHeight() );
 
         return tab_obrazow;
     }
-
-
-
-
 
 }

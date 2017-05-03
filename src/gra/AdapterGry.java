@@ -14,7 +14,7 @@ public class AdapterGry {
     public AdapterGry() {
         y = 4;
         x = 4;
-        obraz = OknoGry.obraz;
+        obraz = OknoGry.panel;
     }
 
     public void czytanieKlawisza(KeyEvent evt) {
@@ -37,14 +37,14 @@ public class AdapterGry {
             for (int i = 0; i <= 5; i++) this.mieszaj();
         }
         if (this.sprawdz() == 0) {
-            JOptionPane.showMessageDialog(null, "Gratulejszyn ziomuś");
+            JOptionPane.showMessageDialog(null, "Brawo");
         }
     }
 
     public void funzamzdj(int a, int b, int a2, int b2) {
         int zamtab;
         BufferedImage[] zamzdj = new BufferedImage[1];
-        zamzdj[0] = OknoGry.obraz.tab_obrazkow[a2][b2];
+        zamzdj[0] = OknoGry.panel.tab_obrazkow[a2][b2];
         obraz.tab_obrazkow[a2][b2] = obraz.tab_obrazkow[a][b];
         obraz.tab_obrazkow[a][b] = zamzdj[0];
         zamtab = obraz.tab_numerow[b][a];
